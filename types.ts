@@ -35,6 +35,7 @@ export interface FileMetadata {
   createdAt: firebase.firestore.Timestamp;
   downloadURL: string;
   storagePath: string; // Aggiunto per il download sicuro tramite SDK
+  isArchived?: boolean; // Aggiunto per il sistema di archiviazione
 }
 
 // StoredFile is no longer needed as we fetch data and metadata separately

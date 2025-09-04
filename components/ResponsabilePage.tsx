@@ -66,10 +66,14 @@ export const ResponsabilePage: React.FC = () => {
         setIsLoading(true);
         setError(null);
         try {
-            // Get latest magazzino file
-            const magazzinoQuery = db.collection('files').where('role', '==', UserRole.MAGAZZINO).orderBy('createdAt', 'desc').limit(1);
+            // Get latest ACTIVE magazzino file by filtering client-side to avoid complex indexes
+            const magazzinoQuery = db.collection('files')
+                .where('role', '==', UserRole.MAGAZZINO)
+                .orderBy('createdAt', 'desc');
             const magazzinoSnapshot = await magazzinoQuery.get();
-            const magazzinoFileMeta = magazzinoSnapshot.docs[0]?.data() as FileMetadata;
+            const activeMagazzinoDoc = magazzinoSnapshot.docs.find(doc => doc.data().isArchived !== true);
+            const magazzinoFileMeta = activeMagazzinoDoc?.data() as FileMetadata | undefined;
+
 
             // Get all forza vendita files
             const fvQuery = db.collection('files').where('role', '==', UserRole.FORZA_VENDITA);

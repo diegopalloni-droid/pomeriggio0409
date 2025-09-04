@@ -42,7 +42,14 @@ export const FileUploadHistory: React.FC<FileUploadHistoryProps> = ({ files }) =
                         {files.map(file => (
                             <li key={file.id} className="p-3 bg-black/20 rounded-lg flex justify-between items-center border border-white/10 hover:bg-white/10 hover:border-brand-start transition-all duration-200">
                                 <div className="flex-1 min-w-0">
-                                    <p className="font-semibold text-slate-200 truncate" title={file.fileName}>{file.fileName}</p>
+                                    <p className="font-semibold text-slate-200 truncate" title={file.fileName}>
+                                      {file.fileName}
+                                      {file.isArchived && (
+                                        <span className="ml-2 text-xs font-medium bg-yellow-900/60 text-yellow-300 px-2 py-0.5 rounded-full">
+                                          Archived
+                                        </span>
+                                      )}
+                                    </p>
                                     <p className="text-xs text-slate-400">{formatTimestamp(file.createdAt)}</p>
                                 </div>
                                 <a

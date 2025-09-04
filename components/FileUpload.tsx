@@ -71,7 +71,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ user, userFile, role }) 
       <p className="text-center text-slate-400 mb-6">
         {role === UserRole.FORZA_VENDITA
           ? "Carica il tuo file Excel. Sarà rinominato usando la data e la descrizione fornita."
-          : "Carica il tuo file Excel. Solo un file può essere attivo alla volta (il precedente verrà sovrascritto)."
+          : "Carica il tuo file Excel. Solo un file può essere attivo alla volta (il precedente verrà archiviato)."
         }
       </p>
       

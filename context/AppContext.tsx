@@ -80,9 +80,23 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     try {
         const fileNameToUpload = finalFileName ? `${finalFileName}.xlsx` : file.name;
         
-        // Per il magazzino, il percorso è fisso per sovrascrivere.
-        // Per la forza vendita, il percorso è unico per ogni file.
-        const filePath = user.role === UserRole.MAGAZZINO ? `files/${user.uid}/magazzino_latest.xlsx` : `files/${user.uid}/${Date.now()}_${fileNameToUpload}`;
+        // Se l'utente è Magazzino, archivia i suoi file precedenti
+        if (user.role === UserRole.MAGAZZINO) {
+            const batch = db.batch();
+            const activeFilesQuery = db.collection('files')
+                .where('uploaderUid', '==', user.uid)
+                .where('role', '==', UserRole.MAGAZZINO)
+                .where('isArchived', '!=', true);
+
+            const snapshot = await activeFilesQuery.get();
+            snapshot.forEach(doc => {
+                batch.update(doc.ref, { isArchived: true });
+            });
+            await batch.commit();
+        }
+
+        // Tutti i file ora hanno un percorso univoco per prevenire sovrascritture
+        const filePath = `files/${user.uid}/${Date.now()}_${fileNameToUpload}`;
         
         const storageRef = storage.ref(filePath);
         const uploadTask = await storageRef.put(file);
@@ -95,7 +109,8 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             role: user.role,
             createdAt: new Date(),
             downloadURL: downloadURL,
-            storagePath: filePath // Salva il percorso per il download sicuro con l'SDK
+            storagePath: filePath,
+            isArchived: false // Il nuovo file è sempre attivo
         };
 
         // Salva i metadati in Firestore
