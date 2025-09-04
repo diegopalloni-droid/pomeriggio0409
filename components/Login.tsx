@@ -71,7 +71,7 @@ export const Login: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center items-center px-4 py-3 font-bold text-white bg-gradient-to-r from-sky-500 to-violet-500 rounded-lg hover:shadow-lg hover:shadow-violet-500/40 transition-all duration-300 disabled:opacity-50"
+              className="w-full flex justify-center items-center px-4 py-3 font-bold text-white bg-gradient-to-r from-amber-400 to-orange-500 rounded-lg hover:shadow-lg hover:shadow-orange-500/40 transition-all duration-300 disabled:opacity-50"
             >
               {loading ? 'Signing In...' : 'Sign In'}
             </button>

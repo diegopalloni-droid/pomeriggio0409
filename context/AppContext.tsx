@@ -1,4 +1,8 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
+// FIX: Use Firebase v9 compat imports to address errors from using v8 syntax with a v9+ SDK.
+// FIX: The `firebase/compat/app` module requires a default import to correctly resolve types from services like firestore.
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 import { auth, db, storage } from '../firebase';
 import { User, UserRole } from '../types';
 
@@ -107,7 +111,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             uploaderUsername: user.username,
             uploaderUid: user.uid,
             role: user.role,
-            createdAt: new Date(),
+            createdAt: firebase.firestore.Timestamp.fromDate(new Date()),
             downloadURL: downloadURL,
             storagePath: filePath,
             isArchived: false // Il nuovo file è sempre attivo

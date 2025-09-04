@@ -37,8 +37,8 @@
               sans: ['Poppins', 'sans-serif'],
             },
             colors: {
-              'brand-start': '#38bdf8', // sky-400
-              'brand-end': '#a78bfa',   // violet-400
+              'brand-start': '#facc15', // amber-400
+              'brand-end': '#f97316',   // orange-500
             }
           },
         },
@@ -66,9 +66,9 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: radial-gradient(circle at top left, #38bdf8, transparent 40%),
-                    radial-gradient(circle at bottom right, #a78bfa, transparent 40%),
-                    radial-gradient(circle at top right, #ec4899, transparent 50%);
+        background: radial-gradient(circle at top left, #facc15, transparent 40%),
+                    radial-gradient(circle at bottom right, #f97316, transparent 40%),
+                    radial-gradient(circle at top right, #fb923c, transparent 50%);
         background-size: 300% 300%;
         animation: aurora 20s ease-in-out infinite;
         z-index: -1;
@@ -77,12 +77,12 @@
       }
 
       ::selection {
-        background-color: #8b5cf6; /* violet-500 */
+        background-color: #f59e0b; /* amber-500 */
         color: #f8fafc;
       }
 
       .gradient-text {
-        background-image: linear-gradient(90deg, #38bdf8, #c084fc);
+        background-image: linear-gradient(90deg, #facc15, #f97316);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
