@@ -9,7 +9,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAE8pJj3LPkQAIzwq7UzsibAXj_q5cIjG0",
   authDomain: "exel-analysis-dashboard-v2.firebaseapp.com",
   projectId: "exel-analysis-dashboard-v2",
-  storageBucket: "exel-analysis-dashboard-v2.firebasestorage.app",
+  storageBucket: "exel-analysis-dashboard-v2.appspot.com",
   messagingSenderId: "599022634028",
   appId: "1:599022634028:web:02dd6e0832ff0373047d89"
 };
