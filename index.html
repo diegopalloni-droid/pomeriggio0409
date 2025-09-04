@@ -36,32 +36,53 @@
             fontFamily: {
               sans: ['Poppins', 'sans-serif'],
             },
-            backgroundImage: {
-              'gradient-primary': 'linear-gradient(90deg, #38bdf8, #a78bfa)',
-              'gradient-primary-hover': 'linear-gradient(90deg, #0ea5e9, #8b5cf6)',
-            },
             colors: {
-              'brand-start': '#38bdf8',
-              'brand-end': '#a78bfa',
+              'brand-start': '#38bdf8', // sky-400
+              'brand-end': '#a78bfa',   // violet-400
             }
           },
         },
       }
     </script>
     <style>
+      @keyframes aurora {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
       body {
         font-family: 'Poppins', sans-serif;
-        background-color: #0f172a;
-        background-image: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
-        background-attachment: fixed;
+        background-color: #020617; /* slate-950 */
+        color: #e2e8f0; /* slate-200 */
+        overflow: hidden; /* Nasconde lo scroll dello sfondo */
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
       }
+      
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(circle at top left, #38bdf8, transparent 40%),
+                    radial-gradient(circle at bottom right, #a78bfa, transparent 40%),
+                    radial-gradient(circle at top right, #ec4899, transparent 50%);
+        background-size: 300% 300%;
+        animation: aurora 20s ease-in-out infinite;
+        z-index: -1;
+        opacity: 0.3;
+        filter: blur(100px);
+      }
+
       ::selection {
-        background-color: #8b5cf6;
+        background-color: #8b5cf6; /* violet-500 */
         color: #f8fafc;
       }
+
       .gradient-text {
-        background-image: linear-gradient(90deg, #38bdf8, #a78bfa);
+        background-image: linear-gradient(90deg, #38bdf8, #c084fc);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -69,8 +90,8 @@
     </style>
   <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="text-slate-200">
-    <div id="root"></div>
+  <body>
+    <div id="root" class="h-screen w-screen overflow-y-auto"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

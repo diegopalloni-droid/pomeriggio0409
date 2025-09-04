@@ -95,7 +95,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             role: user.role,
             createdAt: new Date(),
             downloadURL: downloadURL,
-            storagePath: filePath
+            storagePath: filePath // Salva il percorso per il download sicuro con l'SDK
         };
 
         // Salva i metadati in Firestore

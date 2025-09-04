@@ -66,7 +66,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ user, userFile, role }) 
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto bg-slate-900/40 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-slate-700/80">
+    <div className="w-full max-w-lg mx-auto bg-slate-900/30 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-white/20">
       <h2 className="text-2xl font-bold text-white mb-4 text-center">Upload Excel File</h2>
       <p className="text-center text-slate-400 mb-6">
         {role === UserRole.FORZA_VENDITA
@@ -85,7 +85,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ user, userFile, role }) 
             rows={3}
             value={description}
             onChange={handleDescriptionChange}
-            className="w-full px-4 py-2 text-white bg-slate-800/50 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start"
+            className="w-full px-4 py-2 text-white bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start transition-all"
             placeholder="Inserisci una descrizione dettagliata per il file..."
             required
             minLength={20}
@@ -103,7 +103,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ user, userFile, role }) 
 
       <div 
         onClick={triggerFileSelect}
-        className="cursor-pointer border-2 border-dashed border-slate-600 hover:border-brand-start rounded-xl p-6 text-center transition-colors duration-200"
+        className="cursor-pointer border-2 border-dashed border-white/20 hover:border-brand-start rounded-xl p-6 text-center transition-colors duration-300"
       >
         <DocumentArrowUpIcon className="w-12 h-12 mx-auto text-slate-500"/>
         <p className="mt-2 text-slate-300">
@@ -121,7 +121,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ user, userFile, role }) 
       <button
         onClick={handleUpload}
         disabled={!selectedFile || loading}
-        className="w-full mt-6 bg-gradient-primary text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center shadow-lg shadow-brand-end/20"
+        className="w-full mt-6 bg-gradient-to-r from-sky-500 to-violet-500 text-white font-bold py-3 px-4 rounded-lg hover:shadow-lg hover:shadow-violet-500/40 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center"
       >
         {loading ? (
           <>

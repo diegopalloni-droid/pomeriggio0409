@@ -59,9 +59,9 @@ export const UserManagement: React.FC<{onBack: () => void}> = ({ onBack }) => {
     };
 
     return (
-        <div className="w-full max-w-2xl mx-auto bg-slate-900/40 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-slate-700/80">
+        <div className="w-full max-w-2xl mx-auto bg-slate-900/30 backdrop-blur-xl p-8 rounded-2xl shadow-2xl border border-white/20">
             <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-slate-200">User Management</h2>
+                <h2 className="text-2xl font-bold text-slate-100">User Management</h2>
                 <button onClick={onBack} className="text-sm font-medium text-slate-300 hover:text-brand-start transition-colors">
                     &larr; Back to Dashboard
                 </button>
@@ -74,7 +74,7 @@ export const UserManagement: React.FC<{onBack: () => void}> = ({ onBack }) => {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-2 text-white bg-slate-800/50 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start"
+                        className="w-full px-4 py-2 text-white bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start transition-all"
                         placeholder="new-user@example.com (username will be 'new-user')"
                         required
                     />
@@ -87,7 +87,7 @@ export const UserManagement: React.FC<{onBack: () => void}> = ({ onBack }) => {
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="w-full px-4 py-2 text-white bg-slate-800/50 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start"
+                        className="w-full px-4 py-2 text-white bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start transition-all"
                         placeholder="Min. 6 characters"
                         required
                     />
@@ -98,7 +98,7 @@ export const UserManagement: React.FC<{onBack: () => void}> = ({ onBack }) => {
                         id="role-create"
                         value={role}
                         onChange={(e) => setRole(e.target.value as UserRole)}
-                        className="w-full px-3 py-2 text-white bg-slate-800/50 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start"
+                        className="w-full px-3 py-2 text-white bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start transition-all"
                     >
                         <option value={UserRole.MAGAZZINO}>Magazzino</option>
                         <option value={UserRole.FORZA_VENDITA}>Forza Vendita</option>
@@ -106,13 +106,13 @@ export const UserManagement: React.FC<{onBack: () => void}> = ({ onBack }) => {
                     </select>
                 </div>
 
-                {error && <p className="text-sm text-red-400">{error}</p>}
-                {success && <p className="text-sm text-green-400">{success}</p>}
+                {error && <p className="text-sm text-red-400 bg-red-900/50 p-3 rounded-md border border-red-500/30">{error}</p>}
+                {success && <p className="text-sm text-green-400 bg-green-900/50 p-3 rounded-md border border-green-500/30">{success}</p>}
 
                 <button
                     type="submit"
                     disabled={loading}
-                    className="w-full mt-2 bg-gradient-primary text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 disabled:opacity-50 transition-all"
+                    className="w-full mt-2 bg-gradient-to-r from-sky-500 to-violet-500 text-white font-bold py-3 px-4 rounded-lg hover:shadow-lg hover:shadow-violet-500/40 disabled:opacity-50 transition-all"
                 >
                     {loading ? 'Creating...' : 'Create User'}
                 </button>

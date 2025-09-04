@@ -34,6 +34,7 @@ export interface FileMetadata {
   role: UserRole;
   createdAt: firebase.firestore.Timestamp;
   downloadURL: string;
+  storagePath: string; // Aggiunto per il download sicuro tramite SDK
 }
 
 // StoredFile is no longer needed as we fetch data and metadata separately

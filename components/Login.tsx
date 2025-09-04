@@ -21,8 +21,8 @@ export const Login: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
-      <div className="w-full max-w-md p-8 space-y-6 bg-slate-900/40 backdrop-blur-lg rounded-2xl shadow-2xl border border-slate-700/80">
-        <h1 className="text-6xl font-bold text-center gradient-text">
+      <div className="w-full max-w-md p-8 space-y-6 bg-slate-900/30 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20">
+        <h1 className="text-7xl font-bold text-center gradient-text">
           CGS
         </h1>
         <p className="text-center text-slate-400">Please sign in to continue</p>
@@ -39,7 +39,7 @@ export const Login: React.FC = () => {
               type="email"
               value={email}
               onChange={(e) => { setEmail(e.target.value); handleInputChange(); }}
-              className="w-full px-4 py-2 text-white bg-slate-800/50 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start"
+              className="w-full px-4 py-2 text-white bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start transition-all"
               placeholder="your-email@example.com"
               required
             />
@@ -56,7 +56,7 @@ export const Login: React.FC = () => {
               type="password"
               value={password}
               onChange={(e) => { setPassword(e.target.value); handleInputChange(); }}
-              className="w-full px-4 py-2 text-white bg-slate-800/50 border border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start"
+              className="w-full px-4 py-2 text-white bg-black/20 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-start transition-all"
               placeholder="••••••••"
               required
             />
@@ -71,7 +71,7 @@ export const Login: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex justify-center items-center px-4 py-3 font-bold text-white bg-gradient-primary rounded-lg hover:opacity-90 transition-opacity duration-200 disabled:opacity-50 shadow-lg shadow-brand-end/20"
+              className="w-full flex justify-center items-center px-4 py-3 font-bold text-white bg-gradient-to-r from-sky-500 to-violet-500 rounded-lg hover:shadow-lg hover:shadow-violet-500/40 transition-all duration-300 disabled:opacity-50"
             >
               {loading ? 'Signing In...' : 'Sign In'}
             </button>
