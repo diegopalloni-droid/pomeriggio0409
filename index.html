@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale-scale=1.0" />
+    <title>Dashboard Analisi Excel</title>
+    
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- SheetJS per l'analisi dei file Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.2.1/",
+    "url": "https://aistudiocdn.com/url@^0.11.4",
+    "vite": "https://aistudiocdn.com/vite@^7.1.4",
+    "path": "https://aistudiocdn.com/path@^0.12.7"
+  }
+}
+</script>
+    <script>
+      // Custom TailwindCSS configuration
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+            backgroundImage: {
+              'gradient-primary': 'linear-gradient(90deg, #38bdf8, #a78bfa)',
+              'gradient-primary-hover': 'linear-gradient(90deg, #0ea5e9, #8b5cf6)',
+            },
+            colors: {
+              'brand-start': '#38bdf8',
+              'brand-end': '#a78bfa',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #0f172a;
+        background-image: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+        background-attachment: fixed;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      }
+      ::selection {
+        background-color: #8b5cf6;
+        color: #f8fafc;
+      }
+      .gradient-text {
+        background-image: linear-gradient(90deg, #38bdf8, #a78bfa);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    </style>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="text-slate-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
